@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mi-despliegue
+  name: mi-insuficiencia
 spec:
   selector:
     matchLabels:
-      app: mi-servidor
+      app: mi-muerte
   replicas: 1
   template:
     metadata:
       labels:
-        app: mi-servidor
+        app: mi-muerte
     spec:
       containers:
       - name: mi-contenedor
-        image: docker.io/112334emi/fastapiml:latest
+        image: docker.io/112334emi/fast:latest
         ports:
         - containerPort: 80
 
@@ -25,13 +25,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: mi-servicio
-  name: mi-servicio
+    run: mi-muerte
+  name: mi-muerte
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: mi-servidor
+    app: mi-muerte
   type: LoadBalancer
 
